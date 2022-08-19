@@ -1,0 +1,38 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Helvetica;
+}
+
+@media (max-width: 1080px) {
+  html {
+    font-size: 93.75%;
+  }
+}
+
+/* < tablet */
+@media (max-width: 720px) {
+  html {
+    font-size: 87.5%;
+  }
+}
+
+body {
+  background-color: #000;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color: #F7D354;
+  transition: .5s;
+}
+
+a:hover {
+  color: #B8930c;
+}
+
+button {
+  cursor: pointer;
+}
