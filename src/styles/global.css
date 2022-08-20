@@ -5,6 +5,13 @@
   font-family: Helvetica;
 }
 
+:root {
+  --yellow: #F7D354;
+  --white: #FFF;
+  --bg-color: #121212;
+  --black: #000;
+}
+
 @media (max-width: 1080px) {
   html {
     font-size: 93.75%;
