@@ -1,31 +1,25 @@
 import { useState, useEffect } from 'react';
 import MovieCard from '../components/MovieCard';
 
-import '../styles/pages/Home.css';
+import getMovies from '../services/api';
+
+import Movie from '../types/Movie';
+
+import '../styles/components/MoviesGrid.css';
 
 const moviesURL = import.meta.env.VITE_API;
 const apiKey = import.meta.env.VITE_API_KEY;
 
-interface MovieData {
-  title: string;
-  id: number;
-  poster_path: string;
-  vote_average: number;
-}
-
 function Home() {
-  const [topMovies, setTopMovies] = useState<MovieData[]>([]);
+  const [topMovies, setTopMovies] = useState<Movie[]>([]);
 
-  async function getTopRatedMovies(url: string) {
-    const res = await fetch(url);
-    const data = await res.json();
-
-    setTopMovies(data.results);
+  function handleMovies(param: Movie[]) {
+    setTopMovies(param);
   }
 
   useEffect(() => {
     const topRatedUrl = `${moviesURL}top_rated?api_key=${apiKey}&language=pt-BR`;
-    getTopRatedMovies(topRatedUrl);
+    getMovies({ url: topRatedUrl, handleMovies });
   }, []);
 
   return (
@@ -35,7 +29,7 @@ function Home() {
         {topMovies.length === 0 && <p>Carregando...</p>}
         {topMovies.length > 0 &&
           topMovies &&
-          topMovies.map((movie: MovieData) => (
+          topMovies.map((movie: Movie) => (
             <MovieCard key={movie.id} movie={movie} showLink={true} />
           ))}
       </div>

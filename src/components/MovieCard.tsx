@@ -3,15 +3,10 @@ import { FaStar } from 'react-icons/fa';
 
 const imageUrl = import.meta.env.VITE_IMG;
 
-interface MovieData {
-  title: string;
-  poster_path: string;
-  vote_average: number;
-  id: number;
-}
+import Movie from '../types/Movie';
 
 interface MovieProps {
-  movie: MovieData;
+  movie: Movie;
   showLink: boolean;
 }
 
