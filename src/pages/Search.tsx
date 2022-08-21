@@ -22,7 +22,7 @@ function Search() {
   }
 
   useEffect(() => {
-    const searchWithQueryUrl = `${searchURL}?api_key=${apiKey}&language=pt-BR&query=${query}`;
+    const searchWithQueryUrl = `https://api.themoviedb.org/3/search/movie/?api_key=${apiKey}&language=pt-BR&query=${query}`;
     getMovies({ url: searchWithQueryUrl, handleMovies });
   }, [query]);
 
