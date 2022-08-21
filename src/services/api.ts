@@ -6,6 +6,7 @@ type GetMovieParam = {
 };
 
 async function getMovies({ url, handleMovies }: GetMovieParam) {
+  console.log(url);
   const res = await fetch(url);
   const data = await res.json();
 
